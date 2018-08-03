@@ -31,7 +31,8 @@ for rx in range(sh.nrows):
         ticker['start_date'] = sh.row(rx)[5].value
         ticker['country_of_incorporation'] = sh.row(rx)[6].value
         ticker['ccy'] = sh.row(rx)[7].value
-        tickers_etfs.append(ticker)
+        if ticker['ccy']:
+            tickers_etfs.append(ticker)
     if sh.row(rx)[0].value == "TIDM":
         store_flag = 1
 ###############
@@ -50,7 +51,7 @@ for rx in range(sh.nrows):
         ticker['start_date'] = sh.row(rx)[7].value
         ticker['country_of_incorporation'] = sh.row(rx)[9].value
         ticker['ccy'] = sh.row(rx)[10].value
-        if ticker['ccy'] != '':
+        if ticker['ccy']:
             tickers_etfs.append(ticker)
     if sh.row(rx)[0].value == "TIDM":
         store_flag = 1
